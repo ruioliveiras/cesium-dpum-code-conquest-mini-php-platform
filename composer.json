@@ -1,0 +1,12 @@
+{
+	"name" : "ruioliveiras/ruioliveiras",
+	"authors" : [{
+			"name" : "Rui Oliveiras",
+			"email" : "rui96pedro@hotmail.com"
+		}
+	],
+	"require" : {
+		"slim/slim" : "2.4.*",
+		"tuupola/slim-fake-mcrypt" : "dev-master"
+	}
+}

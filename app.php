@@ -2,43 +2,25 @@
 
 require_once "vendor/autoload.php";
 
-
+$app = new \Slim\Slim();
 $pdo = new PDO(
-    'mysql:host=hostname;dbname=cesium_code',
+    'mysql:host=localhost;dbname=cesium_code',
     'oliveiras',
     'waterFall'
 );
 
-$app = new \Slim\Slim();
 
-function podiumView(){
-
-}
-
-$app->get('/podium', 'podiumView' );
-
-$app->get('/', function () use ($app){
-    echo <<<__HTML
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cesium</title>
-</head>
-<body>
-    <p>Por favor siga os segintes passos</p>
-    <form action="/new" enctype="multipart/form-data" method="post">
-        <input type="file" name="uploads[]" multiple="multiple"/><br/>
-        <input type="submit" value="Upload Now"/>
-    </form>
-</body>
-</html>
-__HTML;
+$app->get('/podium', function () use ($app, $pdo){
+    $sql = "SELECT * from code_test";
+    $r = $pdo->prepare($sql)->execute();
+    
+    //some magic to convert $r to json (....)
+    
+    echo $json;
 });
 
 $app->post('/new', function () use ($app, $pdo){
     $jsonObj = json_decode($app->request()->getBody(), true);
-    
-    
     
     $student = isset($jsonObj['student']) ? $jsonObj['student'] :  'na' ;
     $problem = isset($jsonObj['problem']) ? $jsonObj['problem'] :  'na' ;
@@ -64,32 +46,5 @@ function calcPontos($code) {
     
     return 0;
 }
-
-
-
-    if (!isset($_FILES['uploads'])) {
-        echo "No files uploaded!!";
-        return;
-    }
-    
-    $imgs = array();
-    
-    $files = $_FILES['uploads'];
-    
-    $cnt = count($files['name']);
-    for($i = 0 ; $i < $cnt ; $i++) {
-          }
-    
-    $imageCount = count($imgs);
-    if ($imageCount == 0) {
-        echo 'No files uploaded!!  <p><a href="/">Try again</a>';
-        return;
-    }
-
-
-
-
-
-
 
 $app->run();

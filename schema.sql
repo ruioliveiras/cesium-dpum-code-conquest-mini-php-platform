@@ -5,13 +5,13 @@ CREATE DATABASE cesium_code;
 
 use cesium_code;
 
-DROP TABLE IF EXISTS code_test;
+DROP TABLE IF EXISTS code;
 CREATE TABLE code (
 	id INT not null AUTO_INCREMENT,
-	dateCreate DATETIME not null, -- date of creation
-	points INT not null, -- calculeted point in submition
-	student VARCHAR(10),  -- student code 
-	problem VARCHAR(30),  --problem name 
+	dateCreate DATETIME not null, # date of creation
+	points INT not null, # calculeted point in submition
+	student VARCHAR(10),  # student code 
+	problem VARCHAR(30),  #problem name 
 	email VARCHAR(20), 
 	PRIMARY KEY (id)
 ) ENGINE=INNODB;

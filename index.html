@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RuiOliveiras</title>
+<!-- libs -->
+<script type="text/javascript" src='js/angular.js'></script> 
+
+<script type="text/javascript">
+	fuck you!!!
+
+
+</script>
+
+<style>
+
+.panel {
+	float: left;
+	width: 250px;
+	padding: 0 20px 0 20px;
+	position: fixed;
+	overflow: auto;
+	background: rgba(0,0,0, 0.08);
+	box-shadow: rgba(0,0,0,0.15) -1px 0 8px inset;
+}
+
+
+.workspace {
+	width: 700px;
+	margin: 0 150px 0 300px;
+	padding: 20px 40px;
+}
+
+.workspace > * {
+	width: 100%;
+}
+
+</style>
+
+
+</head>
+
+<body ng-app='app'>
+
+<div ng-controller='codeForm'>
+	<form action="/new" enctype="multipart/form-data" method="post">
+        <input type="file" name="uploads[]" multiple="multiple"/><br/>
+        <input type="submit" value="Upload Now"/>
+		<!-- more things here -->
+    </form>	
+</div>
+
+</body>
+</html>

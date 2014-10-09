@@ -11,12 +11,11 @@ $pdo = new PDO(
 
 
 $app->get('/podium', function () use ($app, $pdo){
-    $sql = "SELECT * from code_test";
-    $r = $pdo->prepare($sql)->execute();
-    
+    $sql = "SELECT * from code_test order by dateCreate";
+    $statement = $pdo->prepare($sql)->execute();
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     //some magic to convert $r to json (....)
-    
-    echo $json;
+    echo json_encode($results);
 });
 
 $app->post('/new', function () use ($app, $pdo){

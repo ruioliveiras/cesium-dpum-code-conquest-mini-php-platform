@@ -50,4 +50,4 @@ my ($n, @rest) = split /\s+/, $sol;
 my $res = 0;
 
 $res = $n if $n == scalar @rest &&  is_clique(@rest);
-printf "10%d\n", $res;
+printf "%d\n", $res;

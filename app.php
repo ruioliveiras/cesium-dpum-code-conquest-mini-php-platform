@@ -39,6 +39,7 @@ $app->post('/new', function () use ($app, $pdo){
               ':email' => $email,
               ':path' => $path));
     
+    $app->response->redirect('../index.html', 303);
 });
 
 function fileSave() {

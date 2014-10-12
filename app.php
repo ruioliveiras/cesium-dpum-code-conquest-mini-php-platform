@@ -11,7 +11,7 @@ $pdo = new PDO(
 
 //XDEBUG_SESSION_START=ECLIPSE_DBGP&amp;KEY=14131304091982
 $app->get('/podium', function () use ($app, $pdo){
-    $sql = "SELECT student as number, points as score from code order by dateCreate";
+    $sql = "SELECT studentName as name, studentCode as number, points as score from code order by dateCreate";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -23,16 +23,18 @@ $app->post('/new', function () use ($app, $pdo){
     //$jsonObj = json_decode($app->request()->getBody(), true);
     $jsonObj = $_POST; 
     
-    $student = isset($jsonObj['student']) ? $jsonObj['student'] :  'na' ;
+    $studentCode = isset($jsonObj['studentCode']) ? $jsonObj['studentCode'] :  'na' ;
+    $studentName = isset($jsonObj['studentName']) ? $jsonObj['studentName'] :  'na' ;
     $problem = isset($jsonObj['problem']) ? $jsonObj['problem'] :  'na' ;
     $email = isset($jsonObj['email']) ? $jsonObj['email'] :  'na' ;
     $path = fileSave();
     $pontos = calcPoints($path);
     
-    $sql = "INSERT INTO code (dateCreate,points,student,problem,email,path) VALUES (NOW(),:points,:student,:problem,:email,:path)";
+    $sql = "INSERT INTO code (dateCreate,points,studentCode,studentName,problem,email,path) VALUES (NOW(),:points,:studentCode,:studentName,:problem,:email,:path)";
     $pdo->prepare($sql)->execute(
         array(':points' => $pontos,
-              ':student' => $student,
+              ':studentCode' => $studentCode,
+              ':studentName' => $studentName,
               ':problem' => $problem,
               ':email' => $email,
               ':path' => $path));
@@ -43,8 +45,8 @@ function fileSave() {
     $uploads_dir = 'uploads';
     $path = $uploads_dir.'/'.uniqid();
     //CenasX
-    if ($_FILES["codigo"]["error"] <= 0) {
-        move_uploaded_file($_FILES["codigo"]['tmp_name'],$path.".code" );
+    if ($_FILES["code"]["error"] <= 0) {
+        move_uploaded_file($_FILES["code"]['tmp_name'],$path.".code" );
     }
 
     if ($_FILES["output"]["error"] <= 0) {

@@ -10,10 +10,11 @@ CREATE TABLE code (
 	id INT not null AUTO_INCREMENT,
 	dateCreate DATETIME not null, # date of creation
 	points INT not null, # calculeted point in submition
-	student VARCHAR(10), # student code 
+	studentCode VARCHAR(10), # student code 
+	studentName VARCHAR(20), # student Name 
 	problem VARCHAR(30), # problem name 
 	path VARCHAR(50),    # code path prefix name
-	email VARCHAR(20), 
+	email VARCHAR(30), 
 	PRIMARY KEY (id)
 ) ENGINE=INNODB;
 

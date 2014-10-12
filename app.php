@@ -63,7 +63,9 @@ function fileSave() {
 
 function calcPoints($filePrefix) 
 {
-    $result = shell_exec('perl verify.pl '.$filePrefix.'.out t20.in');
+    $cmd = '/usr/bin/perl '.__DIR__.'/verify.pl '.__DIR__.'/t20.in '.__DIR__.'/'.$filePrefix.'.out 2>&1';
+    set_time_limit(0);
+    $result = shell_exec($cmd);
     //want to save in better place?  no.... yess.. mkdir and move_uploaded_file.
     //script .... $_FILES["file"]["tmp_name"]
     return (int) $result;

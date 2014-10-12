@@ -7,9 +7,18 @@
 <script type="text/javascript" src='js/angular.js'></script> 
 
 <script type="text/javascript">
-	fuck you!!!
+	angular.module('app', [])
+	.controller('podiumController', ['$http','$scope', function ($http, $scope){
+		$http.get('app.php/podium').
+		success(function(data, status, headers, config) {
+			$scope.result = data;
+		}).
+		error(function(data, status, headers, config) {
+			alert('Some error, try later!');
+		});
+		
+	}]);
 	
-	more scripts herererere
 </script>
 
 <style>
@@ -44,7 +53,16 @@
 
 <div ng-controller='podiumController'>
 	<!-- Doo a barrelll rolll -->
-
+	<table style="width:100%">
+	  <tr>
+	    <td>Numero</td>
+	    <td>Score</td> 
+	  </tr>
+	 <tr ng-repeat="elem in result">
+	    <td>{{ elem.number }}</td>
+	    <td>{{ elem.score }}</td> 
+	  </tr>
+	</table>
 </div>
 
 </body>

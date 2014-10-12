@@ -7,7 +7,6 @@
 <script type="text/javascript" src='js/angular.js'></script> 
 
 <script type="text/javascript">
-	fuck you!!!
 
 
 </script>
@@ -43,8 +42,20 @@
 <body ng-app='app'>
 
 <div ng-controller='codeForm'>
-	<form action="/new" enctype="multipart/form-data" method="post">
-        <input type="file" name="uploads[]" multiple="multiple"/><br/>
+	<form action="app.php/new" enctype="multipart/form-data" method="post">
+        Numero de Aluno<input type="text" name="student"/><br/>
+        Email:<input type="text" name="email"/><br/>
+        <!-- <select name = "problem">
+		  <option value="Problem1">Problema Ze</option>
+		  <option value="Problem2">Problema Ponte</option>
+		  <option value="Problem3">Problema Telemovel</option>
+		  <option value="Problem4">Problema Aquecimento</option>
+		</select><br/>
+		 -->
+		Codigo: <input type="file" name="codigo"/><br/>
+		Pdf: <input type="file" name="pdf"/><br/>
+		output: <input type="file" name="output"/><br/>
+        <!-- <input type="file" name="uploads[]" multiple="multiple"/> -->
         <input type="submit" value="Upload Now"/>
 		<!-- more things here -->
     </form>	

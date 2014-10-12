@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>RuiOliveiras</title>
-<!-- libs -->
-<script type="text/javascript" src='js/angular.js'></script> 
-
-<script type="text/javascript">
-
-
-</script>
-
-<style>
-
-.panel {
-	float: left;
-	width: 250px;
-	padding: 0 20px 0 20px;
-	position: fixed;
-	overflow: auto;
-	background: rgba(0,0,0, 0.08);
-	box-shadow: rgba(0,0,0,0.15) -1px 0 8px inset;
-}
-
-
-.workspace {
-	width: 700px;
-	margin: 0 150px 0 300px;
-	padding: 20px 40px;
-}
-
-.workspace > * {
-	width: 100%;
-}
-
-</style>
-
-
-</head>
-
-<body ng-app='app'>
-
-<div ng-controller='codeForm'>
-	<form action="app.php/new" enctype="multipart/form-data" method="post">
-        Numero de Aluno<input type="text" name="student"/><br/>
-        Email:<input type="text" name="email"/><br/>
-        <!-- <select name = "problem">
-		  <option value="Problem1">Problema Ze</option>
-		  <option value="Problem2">Problema Ponte</option>
-		  <option value="Problem3">Problema Telemovel</option>
-		  <option value="Problem4">Problema Aquecimento</option>
-		</select><br/>
-		 -->
-		Codigo: <input type="file" name="codigo"/><br/>
-		Pdf: <input type="file" name="pdf"/><br/>
-		output: <input type="file" name="output"/><br/>
-        <!-- <input type="file" name="uploads[]" multiple="multiple"/> -->
-        <input type="submit" value="Upload Now"/>
-		<!-- more things here -->
-    </form>	
-</div>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Desafio Algorítmico - Submissão</title>
+		<!-- libs -->
+		<script type="text/javascript" src='js/angular.js'></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">
+		</script>
+		<style>
+		body { margin: 50px; }
+		header { margin-bottom: 50px; }
+		</style>
+	</head>
+	<body ng-app="app">
+		<div ng-controller="codeForm">
+			<header class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h1 class="text-center">Desafio Algorítmico</h1>
+					<h4 class="text-center">Submissão da resolução de desafios</h4>
+				</div>
+			</header>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<form action="app.php/new" enctype="multipart/form-data" method="post" role="form" class="form-horizontal">
+						<div class="form-group">
+							<label for="student" class="col-sm-3 control-label">Número de aluno</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="student" name="student" placeholder="Número de aluno">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3 control-label">E-mail</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="problem" class="col-sm-3 control-label">Desafio</label>
+							<div class="col-sm-9">
+								<select id="problem" name="problem" class="form-control">
+									<option value="Problem1">Problema Ze</option>
+									<option value="Problem2">Problema Ponte</option>
+									<option value="Problem3">Problema Telemovel</option>
+									<option value="Problem4">Problema Aquecimento</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="code" class="col-sm-3 control-label">Código-fonte</label>
+							<div class="col-sm-9">
+								<input type="file" class="form-control" id="code" name="code">
+								<p class="help-block">Ficheiro com o código-fonte a ser submetido</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="pdf" class="col-sm-3 control-label">PDF</label>
+							<div class="col-sm-9">
+								<input type="file" class="form-control" id="pdf" name="pdf">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="output" class="col-sm-3 control-label">Output</label>
+							<div class="col-sm-9">
+								<input type="file" class="form-control" id="output" name="output">
+								<p class="help-block">Ficheiro com o output gerado pelo código-fonte</p>
+							</div>
+						</div>
+						<!-- <input type="file" name="uploads[]" multiple="multiple"/> -->
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-9">
+								<input type="submit" class="btn btn-default" name="submit-code" value="Enviar"/>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

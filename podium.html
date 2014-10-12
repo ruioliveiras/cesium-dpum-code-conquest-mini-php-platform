@@ -1,69 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>RuiOliveiras</title>
-<!-- libs -->
-<script type="text/javascript" src='js/angular.js'></script> 
-
-<script type="text/javascript">
-	angular.module('app', [])
-	.controller('podiumController', ['$http','$scope', function ($http, $scope){
-		$http.get('app.php/podium').
-		success(function(data, status, headers, config) {
-			$scope.result = data;
-		}).
-		error(function(data, status, headers, config) {
-			alert('Some error, try later!');
-		});
-		
-	}]);
-	
-</script>
-
-<style>
-
-.panel {
-	float: left;
-	width: 250px;
-	padding: 0 20px 0 20px;
-	position: fixed;
-	overflow: auto;
-	background: rgba(0,0,0, 0.08);
-	box-shadow: rgba(0,0,0,0.15) -1px 0 8px inset;
-}
-
-
-.workspace {
-	width: 700px;
-	margin: 0 150px 0 300px;
-	padding: 20px 40px;
-}
-
-.workspace > * {
-	width: 100%;
-}
-
-</style>
-
-
-</head>
-
-<body ng-app='app'>
-
-<div ng-controller='podiumController'>
-	<!-- Doo a barrelll rolll -->
-	<table style="width:100%">
-	  <tr>
-	    <td>Numero</td>
-	    <td>Score</td> 
-	  </tr>
-	 <tr ng-repeat="elem in result">
-	    <td>{{ elem.number }}</td>
-	    <td>{{ elem.score }}</td> 
-	  </tr>
-	</table>
-</div>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Desafio Algorítmico - Ranking</title>
+		<!-- libs -->
+		<script type="text/javascript" src='js/angular.js'></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">
+			angular.module('app', [])
+			.controller('podiumController', ['$http','$scope', function ($http, $scope){
+				$http.get('app.php/podium').
+				success(function(data, status, headers, config) {
+					$scope.result = data;
+				}).
+				error(function(data, status, headers, config) {
+					alert('Some error, try later!');
+				});
+			}]);
+		</script>
+		<style>
+		body { margin: 50px; }
+		header { margin-bottom: 50px; }
+		</style>
+	</head>
+	<body ng-app='app'>
+		<div ng-controller='podiumController'>
+			<header class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h1 class="text-center">Desafio Algorítmico</h1>
+					<h4 class="text-center">Ranking de submissões</h4>
+				</div>
+			</header>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Número de Aluno</th>
+								<th>Pontuação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="elem in result">
+								<td>{{ elem.position }}</td>
+								<td>{{ elem.number }}</td>
+								<td>{{ elem.score }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

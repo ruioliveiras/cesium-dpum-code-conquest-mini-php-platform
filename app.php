@@ -11,7 +11,7 @@ $pdo = new PDO(
 
 //XDEBUG_SESSION_START=ECLIPSE_DBGP&amp;KEY=14131304091982
 $app->get('/podium', function () use ($app, $pdo){
-    $sql = "SELECT studentName as name, studentCode as number, points as score from code order by dateCreate";
+    $sql = "SELECT studentName as name, studentCode as number, points as score from code order by points desc";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);

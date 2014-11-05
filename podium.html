@@ -35,24 +35,12 @@
 			</header>
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Número de Aluno</th>
-								<th>Nome</th>
-								<th>Pontuação</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="(index, elem) in result">
-								<td>{{ index + 1 }}</td>
-								<td>{{ elem.number }}</td>
-								<td>{{ elem.name }}</td>
-								<td>{{ elem.score }}</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="col-sm-12" ng-repeat="(index, elem) in result">
+						<td>{{ index + 1 }}</td>
+						<td>{{ elem.number }}</td>
+						<td>{{ elem.name }}</td>
+						<td>{{ elem.score }}</td>
+					</div>
 				</div>
 			</div>
 		</div>

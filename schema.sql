@@ -7,7 +7,7 @@ use cesium_code;
 
 DROP TABLE IF EXISTS code;
 CREATE TABLE code (
-	id INT not null AUTO_INCREMENT,
+	, INT not null AUTO_INCREMENT,
 	dateCreate DATETIME not null, # date of creation
 	points INT not null, # calculeted point in submition
 	studentCode VARCHAR(10), # student code 

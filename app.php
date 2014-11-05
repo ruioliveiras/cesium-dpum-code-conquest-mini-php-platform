@@ -1,4 +1,17 @@
 <?php
+/** This file only contains API's
+ *  Contais APIS by this order:
+ *  /podim/<problemId> GET
+ *  /problem        GET all problems
+ *  /problem        POST <Admin> add problem
+ *  /problem/<id>   GET problem id
+ *  /problem/<id>   PUT <Admin> edit problem
+ *  /problem/<id>/pdf GET pdf
+ *  /problem/<id>/submission POST add new submission
+ * 
+ * 
+ */
+
 
 require_once "vendor/autoload.php";
 

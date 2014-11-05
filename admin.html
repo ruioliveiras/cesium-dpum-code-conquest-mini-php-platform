@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio Algorítmico</title>
+        <!-- libs -->
+        <script type="text/javascript" src='js/angular.js'></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script type="text/javascript">
+            angular.module('app', [])
+            .controller('podiumController', ['$http','$scope', function ($http, $scope){
+                $http.get('app.php/podium').
+                success(function(data, status, headers, config) {
+                    $scope.result = data;
+                }).
+                error(function(data, status, headers, config) {
+                    alert('Some error, try later!');
+                });
+            }]);
+        </script>
+        <style>
+        body { margin: 50px; }
+        header { margin-bottom: 50px; }
+        </style>
+    </head>
+    <body ng-app='app'>
+        <div ng-controller='podiumController'>
+            <header class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="text-center">Desafio Algorítmico</h1>
+                    <h4 class="text-center">Pagina de Administrador</h4>
+                </div>
+            </header>
+            <div class="row">
+                <div ng-view></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <base href="/">
+        <title>Desafio Algorítmico</title>
+        <!-- libs -->
+        <script type="text/javascript" src='js/angular.js'></script>
+        <script type="text/javascript" src='js/angular-route.js'></script>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script type="text/javascript" src='index/index.js'></script>
+        <style>
+        body { margin: 50px; }
+        header { margin-bottom: 50px; }
+        </style>
+    </head>
+    <body ng-app='app'>
+        <div ng-controller='MainCtrl'>
+            <header class="row">
+                <div class="col-md-8 col-md-offset-2">
+  					<h1 class="text-center"><a href="problem/">Desafio Algorítmico</a></h1>
+					<h4 class="text-center">Submissão da resolução de desafios</h4>
+              </div>
+            </header>
+            <div class="row">
+                <div ng-view></div>
+            </div>
+        </div>
+    </body>
+</html>

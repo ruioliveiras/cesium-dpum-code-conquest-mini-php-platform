@@ -6,14 +6,14 @@
  *  /problem        POST <Admin> add problem
  *  /problem/<id>   GET problem id
  *  /problem/<id>   PUT <Admin> edit problem
+ *  /problem/<id>/podium GET actual result
  *  /problem/<id>/pdf GET pdf
  *  /problem/<id>/submission POST add new submission
- * 
  * 
  */
 
 
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 $app = new \Slim\Slim();
 $pdo = new PDO(
@@ -21,6 +21,20 @@ $pdo = new PDO(
     'oliveiras',
     'waterFall'
 );
+
+$app->get('/problem', function () use ($app, $pdo){
+    $a = [['id' => '10','name' => 'Ola10'],['id' => '11','name' => 'Ola12']];
+    echo json_encode($a);
+});
+
+$app->get('/problem/:id', function () use ($app, $pdo){
+    echo '{"id": "10","name": "test"}'; 
+});
+
+$app->get('/problem/:id/podium', function () use ($app, $pdo){
+    echo "fuckyout";
+});
+
 
 //XDEBUG_SESSION_START=ECLIPSE_DBGP&amp;KEY=14131304091982
 $app->get('/podium', function () use ($app, $pdo){

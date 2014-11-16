@@ -10,6 +10,41 @@
         
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+        <script type="text/javascript">
+            angular.module('app', ['ngRoute'])
+            .config( ['$routeProvider', '$locationProvider', 
+            function($routeProvider, $locationProvider) {
+              $routeProvider
+                .when('/', {
+                  templateUrl: 'index/problems.html',
+                  controller: 'ProblemsCtrl',
+                  controllerAs: 'problems'
+                })
+                .when('/problem/', {
+                  templateUrl: 'index/problems.html',
+                  controller: 'ProblemsCtrl',
+                  controllerAs: 'problems'
+                })
+               .when('/problem/:id', {
+                  templateUrl: 'index/podium.html',
+                  controller: 'PodiumCtrl',
+                  controllerAs: 'podium'
+                })
+               .when('/problem/:id/podium', {
+                  templateUrl: 'index/podium.html',
+                  controller: 'PodiumCtrl',
+                  controllerAs: 'podium'
+                })
+                .when('/problem/:id/submission', {
+                  templateUrl: 'index/submission.html',
+                  controller: 'SubmissionCtrl',
+                  controllerAs: 'submission'
+                });
+
+              $locationProvider.html5Mode(true);
+            }]);
+        </script>
         <script type="text/javascript" src='index/index.js'></script>
         <style>
         body { margin: 50px; }

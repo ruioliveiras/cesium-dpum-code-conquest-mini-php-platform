@@ -8,15 +8,32 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script type="text/javascript">
-            angular.module('app', [])
-            .controller('podiumController', ['$http','$scope', function ($http, $scope){
-                $http.get('app.php/podium').
-                success(function(data, status, headers, config) {
-                    $scope.result = data;
-                }).
-                error(function(data, status, headers, config) {
-                    alert('Some error, try later!');
+            angular.module('app-admin', ['ngRoute'])
+            .config( ['$routeProvider', '$locationProvider', 
+            function($routeProvider, $locationProvider) {
+              $routeProvider
+                .when('/', {
+                  templateUrl: 'admin/login.html',
+                  controller: 'loginCtrl',
+                  controllerAs: 'login'
+                })
+                .when('/problem/', {
+                  templateUrl: 'admin/problems.html',
+                  controller: 'ProblemsCtrl',
+                  controllerAs: 'problems'
+                })
+               .when('/problem/:id', {
+                  templateUrl: 'admin/editproblem.html',
+                  controller: 'ProblemEditCtrl',
+                  controllerAs: 'problemEdit'
+                })
+               .when('/problem/create', {
+                  templateUrl: 'index/createproblem.html',
+                  controller: 'ProblemCreateCtrl',
+                  controllerAs: 'problemCreate'
                 });
+                
+                $locationProvider.html5Mode(true);
             }]);
         </script>
         <style>

@@ -1,0 +1,21 @@
+<div class="col-md-6 col-md-offset-3">
+    <div class="row">
+        {{ data.name }}
+    </div>
+    <div class="row">
+        <a ng-href="/problem/{{ data.id }}/submission">Submissão de Desafios</a>
+    </div>
+    <div class="row">
+        <a ng-href="{{ data.pdf }}">Download Enunciado</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="col-sm-12" ng-repeat="(index, elem) in data">
+            <td>{{ index + 1 }}</td>
+            <td>{{ elem.number }}</td>
+            <td>{{ elem.name }}</td>
+            <td>{{ elem.score }}</td>
+        </div>
+    </div>
+</div>

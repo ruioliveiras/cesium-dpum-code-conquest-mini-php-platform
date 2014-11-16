@@ -1,42 +1,5 @@
-angular.module('app', ['ngRoute'])
-.config( ['$routeProvider', '$locationProvider', 
-function($routeProvider, $locationProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: 'index/problems.html',
-      controller: 'ProblemsCtrl',
-      controllerAs: 'problems'
-    })
-    .when('/problem/', {
-      templateUrl: 'index/problems.html',
-      controller: 'ProblemsCtrl',
-      controllerAs: 'problems'
-    })
-   .when('/problem/:id', {
-      templateUrl: 'index/problem.html',
-      controller: 'ProblemCtrl',
-      controllerAs: 'problem'
-    })
-   .when('/problem/:id/podium', {
-      templateUrl: 'index/podium.html',
-      controller: 'PodiumCtrl',
-      controllerAs: 'podium'
-    })
-    .when('/problem/:id/submission', {
-      templateUrl: 'index/submission.html',
-      controller: 'SubmissionCtrl',
-      controllerAs: 'submission'
-    })
+angular.module('app')
 
-  $locationProvider.html5Mode(true);
-}])
-
-.controller('MainCtrl', ['$route', '$routeParams', '$location', 
- function($route, $routeParams, $location) {
-    this.$route = $route;
-    this.$location = $location;
-    this.$routeParams = $routeParams;
-}])
 .factory('ApiRequest', ['$http','$q',function($http, $q){
   var get = function(url) {
       var ret = $q.defer();

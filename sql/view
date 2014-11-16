@@ -1,0 +1,9 @@
+CREATE VIEW `view1` AS
+    select 
+        s.studentd_name as `name`,
+        s.`points` as points,
+        p.`name` as problem
+    from
+        submission s
+            inner join
+        problem p ON p.id = s.problem_id;

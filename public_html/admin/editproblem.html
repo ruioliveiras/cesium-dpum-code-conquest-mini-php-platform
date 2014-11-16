@@ -1,0 +1,35 @@
+<!--fazendo upload do enunciado (pdf), script que atribui pontuação, definir hora limite.-->
+<div class="col-md-6 col-md-offset-3">
+<form action="app.php/problem" enctype="multipart/form-data" method="post" role="form" class="form-horizontal">
+    <div class="form-group">
+        <label for="problemName" class="col-sm-3 control-label">Nome do problema</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="problemName" name="problemName" placeholder="Número de aluno">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" class="col-sm-3 control-label">Descrição</label>
+        <div class="col-sm-9">
+            <textarea class="form-control" id="description" name="description" placeholder="Nome">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="end-date" class="col-sm-3 control-label">Data de fim</label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" id="end-date" name="end-date" placeholder="E-mail">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="document" class="col-sm-3 control-label">PDF</label>
+        <div class="col-sm-9">
+            <input type="file" class="form-control filestyle " id="document" name="document">
+            <p class="help-block">Ficheiro com a descrição do problema</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="output-script" class="col-sm-3 control-label">Script</label>
+        <div class="col-sm-9">
+            <input type="file" class="form-control filestyle " id="output-script" name="output-script">
+        </div>
+    </div>
+</form>
